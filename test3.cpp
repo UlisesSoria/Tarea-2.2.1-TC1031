@@ -35,7 +35,7 @@ TEST_CASE("testing remove_at", "[List]") {
 		REQUIRE(b1.toString() == "[2, 3, 4, 6, 7]");
 	}
 
-	SECTION ( "b1.remove_at(1000)" ) {
+	SECTION ( "b1.remove_at(6)" ) {
 		REQUIRE_THROWS_AS(b1.remove_at(1000), IndexOutOfBounds);
 	}
 }

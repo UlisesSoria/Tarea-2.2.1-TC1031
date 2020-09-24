@@ -16,5 +16,5 @@ TEST_CASE("testing get", "[List]") {
 
 	REQUIRE(b1.get(0) == 2);
 	REQUIRE(b1.get(5) == 7);
-	REQUIRE_THROWS_AS(b1.get(100), IndexOutOfBounds);
+	REQUIRE_THROWS_AS(b1.get(6), IndexOutOfBounds);
 }

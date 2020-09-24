@@ -1,5 +1,15 @@
-#ifndef List_H
-#define List_H
+// =================================================================
+//
+// File: list.h
+// Author:
+// Description: This file contains the implementation of a TDA List
+//
+// Copyright (c) 2020 by Tecnologico de Monterrey.
+// All Rights Reserved. May be reproduced for any non-commercial
+// purpose.
+// =================================================================
+#ifndef LIST_H
+#define LIST_H
 
 #include <string>
 #include <sstream>
@@ -9,7 +19,9 @@ typedef unsigned int uint;
 
 template <class T> class List;
 
-/* Definition of the Node class */
+// =================================================================
+// Definition of the Node class
+// =================================================================
 template <class T>
 class Node {
 private:
@@ -22,15 +34,29 @@ private:
 	friend class List<T>;
 };
 
+// =================================================================
+// Constructor. Initializes the value of the node. The variable next
+// is initialized to null.
+//
+// @param val, stored value in the node.
+// =================================================================
 template <class T>
 Node<T>::Node(T val) : value(val), next(0) {
 }
 
+// =================================================================
+// Constructor. Initializes both instance variables.
+//
+// @param val, stored value in the node.
+// @param nxt, the next node.
+// =================================================================
 template <class T>
 Node<T>::Node(T val, Node* nxt) : value(val), next(nxt) {
 }
 
-/* Definition of the List class */
+// =================================================================
+// Definition of the List class
+// =================================================================
 template <class T>
 class List {
 private:
@@ -62,25 +88,46 @@ public:
 	long int  indexOf(T) const;
 };
 
+// =================================================================
+// Constructor. Initializes both instance variables to zero.
+// =================================================================
 template <class T>
 List<T>::List() :head(NULL), size(0) {
 }
 
+// =================================================================
+// Destructor. Remove all items from the list.
+// =================================================================
 template <class T>
 List<T>::~List() {
     clear();
 }
 
+// =================================================================
+// Returns if the list is empty or not
+//
+// @returns true if the list is empty, false otherwise.
+// =================================================================
 template <class T>
 bool List<T>::empty() const {
 	return (head == 0);
 }
 
+// =================================================================
+// Returns the number of items in the list.
+//
+// @returns size, the number of items in the list.
+// =================================================================
 template <class T>
 uint List<T>::length() const {
 	return size;
 }
 
+// =================================================================
+// Determines if an item is in the list.
+//
+// @returns true if val is in the list, false otherwise
+// =================================================================
 template <class T>
 bool List<T>::contains(T val) const {
 	Node<T> *p;
@@ -95,6 +142,9 @@ bool List<T>::contains(T val) const {
 	return false;
 }
 
+// =================================================================
+// Remove all items from the list.
+// =================================================================
 template <class T>
 void List<T>::clear() {
 	Node<T> *p, *q;
@@ -110,6 +160,11 @@ void List<T>::clear() {
 	size = 0;
 }
 
+// =================================================================
+// String representation of the elements in the list.
+//
+// @returns a string containing all the elements of the list.
+// =================================================================
 template <class T>
 std::string List<T>::toString() const {
 	std::stringstream aux;
@@ -128,6 +183,12 @@ std::string List<T>::toString() const {
 	return aux.str();
 }
 
+// =================================================================
+// Returns the first item in the list.
+//
+// @returns the object T at the beginning of the list.
+// @throws NoSuchElement, if the list is empty.
+// =================================================================
 template <class T>
 T List<T>::front() const {
 	if (empty()) {
@@ -137,6 +198,12 @@ T List<T>::front() const {
 	return head->value;
 }
 
+// =================================================================
+// Returns the last item in the list.
+//
+// @returns the object T at the end of the list.
+// @throws NoSuchElement, if the list is empty.
+// =================================================================
 template <class T>
 T List<T>::last() const {
 	Node<T> *p;
@@ -152,6 +219,12 @@ T List<T>::last() const {
 	return p->value;
 }
 
+// =================================================================
+// Returns the element that is in the position indicated by index.
+//
+// @returns the element in index
+// @throws IndexOutOfBounds, if index >= size.
+// =================================================================
 template <class T>
 T List<T>::get(uint index) const {
 	T aux;
@@ -160,6 +233,10 @@ T List<T>::get(uint index) const {
 	return aux;
 }
 
+// =================================================================
+// Add an item to the beginning of the list. Increase the size of
+// the list.
+// =================================================================
 template <class T>
 void List<T>::push_front(T val) {
 	Node<T> *q;
@@ -170,6 +247,10 @@ void List<T>::push_front(T val) {
 	size++;
 }
 
+// =================================================================
+// Add an item to the end of the list. Increase the size of
+// the list.
+// =================================================================
 template <class T>
 void List<T>::push_back(T val) {
 	Node<T> *p, *q;
@@ -190,10 +271,22 @@ void List<T>::push_back(T val) {
 	size++;
 }
 
+// =================================================================
+// Add an element in index (0 <= index <= size). The element that
+// was in that position is shifted to the right.
+//
+// @throws IndexOutOfBounds, if index > size.
+// =================================================================
 template <class T>
 void List<T>::insert_at(T val, uint index) {
 }
 
+// =================================================================
+// Delete the item at the beginning of the list.
+//
+// @returns the element that was at the beginning of the list.
+// @throws NoSuchElement if the list is empty
+// =================================================================
 template <class T>
 T List<T>::pop_front() {
 	T val;
@@ -213,6 +306,12 @@ T List<T>::pop_front() {
 	return val;
 }
 
+// =================================================================
+// Delete the item at the end of the list.
+//
+// @returns the element that was at the end of the list.
+// @throws NoSuchElement if the list is empty
+// =================================================================
 template <class T>
 T List<T>::pop_back() {
 	Node<T> *p, *q;
@@ -242,6 +341,12 @@ T List<T>::pop_back() {
 	return val;
 }
 
+// =================================================================
+// Delete the element found in index (0 <= index <size).
+//
+// @returns the element that was in index.
+// @throws IndexOutOfBounds, if index >= size.
+// =================================================================
 template <class T>
 T List<T>::remove_at(uint index) {
 	T aux;
@@ -249,10 +354,16 @@ T List<T>::remove_at(uint index) {
 	return aux;
 }
 
+// =================================================================
+// Returns the position of an item in the list.
+//
+// @returns the position of an item in the list, -1 otherwise.
+// @throws IndexOutOfBounds, if index >= size.
+// =================================================================
 template <class T>
 long int List<T>::indexOf(T val) const {
 	// TO DO
 	return -1;
 }
 
-#endif /* NodeEDList_H_ */
+#endif /* LIST_H */
