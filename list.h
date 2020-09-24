@@ -53,17 +53,17 @@ public:
 
 	void push_front(T);
 	void push_back(T);
-	void insert_at(T, unint);
+	void insert_at(T, uint);
 
 	T    pop_front();
 	T 	 pop_back();
 	T    remove_at(uint);
 
-	long int  index_of(T) const;
+	long int  indexOf(T) const;
 };
 
 template <class T>
-List<T>::List() :head(0), size(0) {
+List<T>::List() :head(NULL), size(0) {
 }
 
 template <class T>
@@ -86,7 +86,7 @@ bool List<T>::contains(T val) const {
 	Node<T> *p;
 
 	p = head;
-	while (p != 0) {
+	while (p != NULL) {
 		if(p->value == val) {
 			return true;
 		}
@@ -100,13 +100,13 @@ void List<T>::clear() {
 	Node<T> *p, *q;
 
 	p = head;
-	while (p != 0){
+	while (p != NULL){
 		q = p->next;
 		delete p;
 		p = q;
 	}
 
-	head = 0;
+	head = NULL;
 	size = 0;
 }
 
@@ -117,9 +117,9 @@ std::string List<T>::toString() const {
 
 	p = head;
 	aux << "[";
-	while (p != 0) {
+	while (p != NULL) {
 		aux << p->value;
-		if (p->next != 0) {
+		if (p->next != NULL) {
 			aux << ", ";
 		}
 		p = p->next;
@@ -146,7 +146,7 @@ T List<T>::last() const {
 	}
 
 	p = head;
-	while (p->next != null) {
+	while (p->next != NULL) {
 		p = p->next;
 	}
 	return p->value;
@@ -180,7 +180,7 @@ void List<T>::push_back(T val) {
 	}
 
 	p = head;
-	while (p->next != 0) {
+	while (p->next != NULL) {
 		p = p->next;
 	}
 
@@ -228,7 +228,7 @@ T List<T>::pop_back() {
 
 	q = 0;
 	p = head;
-	while (p->next != 0) {
+	while (p->next != NULL) {
 		q = p;
 		p = p->next;
 	}
@@ -243,14 +243,14 @@ T List<T>::pop_back() {
 }
 
 template <class T>
-T List<T>::remove_at(uint index) const {
+T List<T>::remove_at(uint index) {
 	T aux;
 	// TO DO
 	return aux;
 }
 
 template <class T>
-long int List<T>::index_of(T val) const {
+long int List<T>::indexOf(T val) const {
 	// TO DO
 	return -1;
 }
