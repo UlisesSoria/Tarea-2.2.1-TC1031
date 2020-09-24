@@ -222,6 +222,7 @@ T List<T>::last() const {
 // =================================================================
 // Returns the element that is in the position indicated by index.
 //
+// @param index, the position, index, of the required element.
 // @returns the element in index
 // @throws IndexOutOfBounds, if index >= size.
 // =================================================================
@@ -275,6 +276,8 @@ void List<T>::push_back(T val) {
 // Add an element in index (0 <= index <= size). The element that
 // was in that position is shifted to the right.
 //
+// @param val, value to be inserted.
+// @param index, the position in which it will be inserted.
 // @throws IndexOutOfBounds, if index > size.
 // =================================================================
 template <class T>
@@ -344,7 +347,8 @@ T List<T>::pop_back() {
 // =================================================================
 // Delete the element found in index (0 <= index <size).
 //
-// @returns the element that was in index.
+// @param index, the position of the element to remove.
+// @returns the element removed.
 // @throws IndexOutOfBounds, if index >= size.
 // =================================================================
 template <class T>
@@ -357,8 +361,8 @@ T List<T>::remove_at(uint index) {
 // =================================================================
 // Returns the position of an item in the list.
 //
+// @param val, the item to search for.
 // @returns the position of an item in the list, -1 otherwise.
-// @throws IndexOutOfBounds, if index >= size.
 // =================================================================
 template <class T>
 long int List<T>::indexOf(T val) const {
