@@ -11,7 +11,7 @@ Dependiendo del ADT de estructura de datos lineal deberán implementar las opera
 <td style="width: 30%; height: 10px; background-color: rgb(25, 99, 169);" rowspan="5"><span style="font-size: 18pt; color: rgb(255, 255, 255);">insert_at (create)</span></td>
 <td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);">Descripción</td>
 <td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);">
-Agrega un elemento en *index* (0 <= índice <= *size*). El elemento que estaba en esa posición se desplaza hacia la derecha.
+Agrega un elemento en *index* (0 <= *index* <= *size*). El elemento que estaba en esa posición se desplaza hacia la derecha.
 </td>
 </tr>
 <tr style="height: 24px;">
