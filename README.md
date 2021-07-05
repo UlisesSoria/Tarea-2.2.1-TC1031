@@ -1,3 +1,4 @@
+![Tec de Monterrey](images/logotecmty.png)
 # Act 2.1 - Implementación en equipo de un ADT de estructura de datos lineales
 
 ## <span style="color: rgb(26, 99, 169);">¿Qué tengo que hacer?</span>
