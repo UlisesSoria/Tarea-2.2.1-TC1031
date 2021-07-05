@@ -6,7 +6,7 @@
  */
 #define CATCH_CONFIG_MAIN
 #include <string>
-#include "catch.hpp"
+#include "catch.h"
 #include "list.h"
 
 TEST_CASE("testing get", "[List]") {

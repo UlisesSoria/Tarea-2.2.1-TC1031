@@ -2,11 +2,8 @@
 //
 // File: list.h
 // Author:
-// Description: This file contains the implementation of a TDA List
-//
-// Copyright (c) 2020 by Tecnologico de Monterrey.
-// All Rights Reserved. May be reproduced for any non-commercial
-// purpose.
+// Date:
+// 
 // =================================================================
 #ifndef LIST_H
 #define LIST_H
@@ -14,8 +11,7 @@
 #include <string>
 #include <sstream>
 #include "exception.h"
-
-typedef unsigned int uint;
+#include "header.h"
 
 template <class T> class List;
 
@@ -41,7 +37,7 @@ private:
 // @param val, stored value in the node.
 // =================================================================
 template <class T>
-Node<T>::Node(T val) : value(val), next(0) {
+Node<T>::Node(T val) : value(val), next(NULL) {
 }
 
 // =================================================================
@@ -100,7 +96,7 @@ List<T>::List() :head(NULL), size(0) {
 // =================================================================
 template <class T>
 List<T>::~List() {
-    clear();
+	clear();
 }
 
 // =================================================================
@@ -110,7 +106,7 @@ List<T>::~List() {
 // =================================================================
 template <class T>
 bool List<T>::empty() const {
-	return (head == 0);
+	return (head == NULL);
 }
 
 // =================================================================
@@ -222,7 +218,6 @@ T List<T>::last() const {
 // =================================================================
 // Returns the element that is in the position indicated by index.
 //
-// @param index, the position, index, of the required element.
 // @returns the element in index
 // @throws IndexOutOfBounds, if index >= size.
 // =================================================================
@@ -276,12 +271,11 @@ void List<T>::push_back(T val) {
 // Add an element in index (0 <= index <= size). The element that
 // was in that position is shifted to the right.
 //
-// @param val, value to be inserted.
-// @param index, the position in which it will be inserted.
 // @throws IndexOutOfBounds, if index > size.
 // =================================================================
 template <class T>
 void List<T>::insert_at(T val, uint index) {
+	// TO DO
 }
 
 // =================================================================
@@ -328,7 +322,7 @@ T List<T>::pop_back() {
 		return pop_front();
 	}
 
-	q = 0;
+	q = NULL;
 	p = head;
 	while (p->next != NULL) {
 		q = p;
@@ -347,8 +341,7 @@ T List<T>::pop_back() {
 // =================================================================
 // Delete the element found in index (0 <= index <size).
 //
-// @param index, the position of the element to remove.
-// @returns the element removed.
+// @returns the element that was in index.
 // @throws IndexOutOfBounds, if index >= size.
 // =================================================================
 template <class T>
@@ -361,8 +354,8 @@ T List<T>::remove_at(uint index) {
 // =================================================================
 // Returns the position of an item in the list.
 //
-// @param val, the item to search for.
 // @returns the position of an item in the list, -1 otherwise.
+// @throws IndexOutOfBounds, if index >= size.
 // =================================================================
 template <class T>
 long int List<T>::indexOf(T val) const {
