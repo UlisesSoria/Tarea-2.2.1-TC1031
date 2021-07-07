@@ -11,9 +11,9 @@ Accede a la siguiente liga: HTTP y acepta la tarea. Esto creará tu repositorio 
 // =========================================================
 ```
 
-Diseña e implementa en forma <span style="text-decoration-line: underline;">forma individual</span>, siguiendo la especificación de la interfaz para un ADT que represente una estructura de datos lineal:
+Diseña e implementa, de forma <span style="text-decoration-line: underline;">forma individual</span>, siguiendo la especificación de la interfaz para un ADT que represente una estructura de datos lineal:
 
-Dependiendo del ADT de estructura de datos lineal deberán implementar las operaciones CRUD (Create, Read (buscar), Update, Delete) elementos en la estructura de datos. Algunas operaciones no aplican para ciertas estructura de datos
+Dependiendo del ADT de estructura de datos lineal deberán implementar las operaciones CRUD (Create, Read (buscar), Update, Delete) elementos en la estructura de datos. Algunas operaciones no aplican para ciertas estructura de datos.
 
 <table style="height: 10px; width: 0%; border-collapse: collapse; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid;" border="1">
 <tbody>
