@@ -223,10 +223,18 @@ T List<T>::last() const {
 // =================================================================
 template <class T>
 T List<T>::get(uint index) const {
-	T aux;
+	Node<T> *aux;
 
-	// TO DO
-	return aux;
+	if(index >= size){
+		throw(IndexOutOfBounds());
+	}
+	int i;
+	aux = head;
+	for (int i = 0; i < index; i++){
+		aux = aux->next;
+	}
+	
+	return aux->value;
 }
 
 // =================================================================
@@ -275,7 +283,27 @@ void List<T>::push_back(T val) {
 // =================================================================
 template <class T>
 void List<T>::insert_at(T val, uint index) {
-	// TO DO
+	Node<T> *p;
+	Node<T> *q = new Node<T>(val);
+
+	if(index > size || index < 0){
+		throw(IndexOutOfBounds());
+	}
+	else if(index == 0){
+		head = new Node<T>(val, head);
+		size++;
+		return;
+	}
+	p = head;
+	for (int i = 0; i < index - 1; i++){
+		p = p->next;
+	}
+	q->next = p->next;
+	p->next = q;
+
+	size++;
+	return;
+
 }
 
 // =================================================================
@@ -346,9 +374,32 @@ T List<T>::pop_back() {
 // =================================================================
 template <class T>
 T List<T>::remove_at(uint index) {
-	T aux;
-	// TO DO
-	return aux;
+	Node<T> *aux;
+	Node <T> *prev;
+	int tupu = 0;
+	aux = head;
+	prev = aux;
+
+	if(index >= size || index < 0){
+		throw(IndexOutOfBounds());
+	}
+	else if(index == 0){
+		tupu = head->value; 
+		head = aux->next;
+		delete aux;
+		size --;
+		return tupu; 
+
+	}
+	for (int i = 0; i < index - 1; i++){
+		prev = prev->next;
+	}
+	aux = prev->next;
+	prev->next = aux->next;
+	tupu = aux->value; 
+	delete aux;
+	size--;
+	return tupu;
 }
 
 // =================================================================
@@ -360,6 +411,16 @@ T List<T>::remove_at(uint index) {
 template <class T>
 long int List<T>::indexOf(T val) const {
 	// TO DO
+	Node<T> *p = head;
+
+	int i = 0;
+	while(p != NULL){
+		if(p->value == val){
+			return i;
+		}
+		p = p->next;
+		i++;
+	}
 	return -1;
 }
 
